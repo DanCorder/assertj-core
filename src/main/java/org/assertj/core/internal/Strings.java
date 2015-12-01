@@ -333,7 +333,7 @@ public class Strings {
    * @param expected the expected {@code CharSequence}.
    * @throws AssertionError if the given {@code CharSequence}s are equal ignoring case considerations.
    */
-  public void assertNotEqualsIgnoringCase(AssertionInfo info, CharSequence actual, CharSequence expected) {
+  public void assertNotEqualIgnoringCase(AssertionInfo info, CharSequence actual, CharSequence expected) {
     if (areEqualIgnoringCase(actual, expected))
       throw failures.failure(info, shouldNotBeEqualIgnoringCase(actual, expected));
   }

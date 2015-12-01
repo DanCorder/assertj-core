@@ -31,6 +31,6 @@ public class CharSequenceAssert_isNotEqualToIgnoringCase_Test extends CharSequen
 
   @Override
   protected void verify_internal_effects() {
-    verify(strings).assertNotEqualsIgnoringCase(getInfo(assertions), getActual(assertions), "yoda");
+    verify(strings).assertNotEqualIgnoringCase(getInfo(assertions), getActual(assertions), "yoda");
   }
 }

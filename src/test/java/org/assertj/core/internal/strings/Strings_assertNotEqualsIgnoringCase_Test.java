@@ -24,7 +24,7 @@ import org.junit.Test;
 
 /**
  * Tests for
- * <code>{@link org.assertj.core.internal.Strings#assertNotEqualsIgnoringCase(org.assertj.core.api.AssertionInfo, CharSequence, CharSequence)}</code>
+ * <code>{@link org.assertj.core.internal.Strings#assertNotEqualIgnoringCase(org.assertj.core.api.AssertionInfo, CharSequence, CharSequence)}</code>
  * .
  *
  * @author Alexander Bischof
@@ -33,17 +33,17 @@ public class Strings_assertNotEqualsIgnoringCase_Test extends StringsBaseTest {
 
   @Test
   public void should_pass_if_actual_is_null_and_expected_is_not() {
-    strings.assertNotEqualsIgnoringCase(someInfo(), null, "Luke");
+    strings.assertNotEqualIgnoringCase(someInfo(), null, "Luke");
   }
 
   @Test
   public void should_pass_if_actual_is_not_null_and_expected_is() {
-    strings.assertNotEqualsIgnoringCase(someInfo(), "Luke", null);
+    strings.assertNotEqualIgnoringCase(someInfo(), "Luke", null);
   }
 
   @Test
   public void should_pass_if_both_Strings_are_not_equal_regardless_of_case() {
-    strings.assertNotEqualsIgnoringCase(someInfo(), "Yoda", "Luke");
+    strings.assertNotEqualIgnoringCase(someInfo(), "Yoda", "Luke");
   }
 
   private void verifyFailureThrownWhenStringsAreNotEqual(AssertionInfo info, String actual, String expected) {
@@ -54,7 +54,7 @@ public class Strings_assertNotEqualsIgnoringCase_Test extends StringsBaseTest {
   public void should_fail_if_both_Strings_are_null() {
     AssertionInfo info = someInfo();
     try {
-      strings.assertNotEqualsIgnoringCase(info, null, null);
+      strings.assertNotEqualIgnoringCase(info, null, null);
     } catch (AssertionError e) {
       verifyFailureThrownWhenStringsAreNotEqual(info, null, null);
       return;
@@ -67,7 +67,7 @@ public class Strings_assertNotEqualsIgnoringCase_Test extends StringsBaseTest {
     AssertionInfo info = someInfo();
     String s = "Yoda";
     try {
-      strings.assertNotEqualsIgnoringCase(info, s, s);
+      strings.assertNotEqualIgnoringCase(info, s, s);
     } catch (AssertionError e) {
       verifyFailureThrownWhenStringsAreNotEqual(info, s, s);
       return;
@@ -79,7 +79,7 @@ public class Strings_assertNotEqualsIgnoringCase_Test extends StringsBaseTest {
   public void should_fail_if_both_Strings_are_equal_but_not_same() {
     AssertionInfo info = someInfo();
     try {
-      strings.assertNotEqualsIgnoringCase(info, "Yoda", new String(arrayOf('Y', 'o', 'd', 'a')));
+      strings.assertNotEqualIgnoringCase(info, "Yoda", new String(arrayOf('Y', 'o', 'd', 'a')));
     } catch (AssertionError e) {
       verifyFailureThrownWhenStringsAreNotEqual(info, "Yoda", "Yoda");
       return;
@@ -91,7 +91,7 @@ public class Strings_assertNotEqualsIgnoringCase_Test extends StringsBaseTest {
   public void should_fail_if_both_Strings_are_equal_ignoring_case() {
     AssertionInfo info = someInfo();
     try {
-      strings.assertNotEqualsIgnoringCase(info, "Yoda", "YODA");
+      strings.assertNotEqualIgnoringCase(info, "Yoda", "YODA");
     } catch (AssertionError e) {
       verifyFailureThrownWhenStringsAreNotEqual(info, "Yoda", "YODA");
       return;
@@ -101,19 +101,19 @@ public class Strings_assertNotEqualsIgnoringCase_Test extends StringsBaseTest {
 
   @Test
   public void should_pass_if_actual_is_null_and_expected_is_not_whatever_custom_comparison_strategy_is() {
-    stringsWithCaseInsensitiveComparisonStrategy.assertNotEqualsIgnoringCase(someInfo(), null, "Luke");
+    stringsWithCaseInsensitiveComparisonStrategy.assertNotEqualIgnoringCase(someInfo(), null, "Luke");
   }
 
   @Test
   public void should_pass_if_both_Strings_are_not_equal_regardless_of_case_whatever_custom_comparison_strategy_is() {
-    stringsWithCaseInsensitiveComparisonStrategy.assertNotEqualsIgnoringCase(someInfo(), "Yoda", "Luke");
+    stringsWithCaseInsensitiveComparisonStrategy.assertNotEqualIgnoringCase(someInfo(), "Yoda", "Luke");
   }
 
   @Test
   public void should_fail_if_both_Strings_are_null_whatever_custom_comparison_strategy_is() {
     AssertionInfo info = someInfo();
     try {
-      stringsWithCaseInsensitiveComparisonStrategy.assertNotEqualsIgnoringCase(info, null, null);
+      stringsWithCaseInsensitiveComparisonStrategy.assertNotEqualIgnoringCase(info, null, null);
     } catch (AssertionError e) {
       verifyFailureThrownWhenStringsAreNotEqual(info, null, null);
       return;
@@ -126,7 +126,7 @@ public class Strings_assertNotEqualsIgnoringCase_Test extends StringsBaseTest {
     AssertionInfo info = someInfo();
     String s = "Yoda";
     try {
-      stringsWithCaseInsensitiveComparisonStrategy.assertNotEqualsIgnoringCase(info, s, s);
+      stringsWithCaseInsensitiveComparisonStrategy.assertNotEqualIgnoringCase(info, s, s);
     } catch (AssertionError e) {
       verifyFailureThrownWhenStringsAreNotEqual(info, s, s);
       return;
@@ -138,7 +138,7 @@ public class Strings_assertNotEqualsIgnoringCase_Test extends StringsBaseTest {
   public void should_fail_if_both_Strings_are_equal_but_not_same_whatever_custom_comparison_strategy_is() {
     AssertionInfo info = someInfo();
     try {
-      stringsWithCaseInsensitiveComparisonStrategy.assertNotEqualsIgnoringCase(info, "Yoda",
+      stringsWithCaseInsensitiveComparisonStrategy.assertNotEqualIgnoringCase(info, "Yoda",
                                                                                new String(
                                                                                           arrayOf('Y', 'o', 'd', 'a')));
     } catch (AssertionError e) {
@@ -152,7 +152,7 @@ public class Strings_assertNotEqualsIgnoringCase_Test extends StringsBaseTest {
   public void should_fail_if_both_Strings_are_equal_ignoring_case_whatever_custom_comparison_strategy_is() {
     AssertionInfo info = someInfo();
     try {
-      stringsWithCaseInsensitiveComparisonStrategy.assertNotEqualsIgnoringCase(info, "Yoda", "YODA");
+      stringsWithCaseInsensitiveComparisonStrategy.assertNotEqualIgnoringCase(info, "Yoda", "YODA");
     } catch (AssertionError e) {
       verifyFailureThrownWhenStringsAreNotEqual(info, "Yoda", "YODA");
       return;

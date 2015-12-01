@@ -251,7 +251,7 @@ public abstract class AbstractCharSequenceAssert<S extends AbstractCharSequenceA
    * @throws AssertionError if the actual {@code CharSequence} is not equal to the given one.
    */
   public S isNotEqualToIgnoringCase(CharSequence expected) {
-    strings.assertNotEqualsIgnoringCase(info, actual, expected);
+    strings.assertNotEqualIgnoringCase(info, actual, expected);
     return myself;
   }
 
